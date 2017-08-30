@@ -11,6 +11,10 @@ RUN cd /home/chibios \
     && git clone https://github.com/texane/stlink.git \
     && cd stlink && make release && cp build/Release/st-flash build/Release/st-info /usr/local/bin
 
+RUN cd /home/chibios \
+    && git clone https://git.code.sf.net/p/stm32flash/code stm32flash-code \
+    && cd stm32flash-code && make && cp stm32flash /usr/local/bin
+
 USER chibios
 
 RUN cd /home/chibios \

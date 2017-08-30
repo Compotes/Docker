@@ -2,9 +2,9 @@
 
 docker build -t chibios .
 
-echo "Enter password to create link to ctmake"
+echo "Enter password to create link to ctcmd"
 
-link="/usr/bin/ctmake"
+link="/usr/bin/ctcmd"
 
 if [ -f "$link" ]
 then
