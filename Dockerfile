@@ -14,23 +14,24 @@ RUN cd /home/chibios \
 USER chibios
 
 RUN cd /home/chibios \
-    && wget https://sourceforge.net/projects/chibios/files/ChibiOS_RT%20stable/Version%203.0.1/ChibiOS_3.0.1.zip/download \
+    && wget https://sourceforge.net/projects/chibios/files/ChibiOS%20GPL3/Version%203.0.2/ChibiOS_3.0.2.zip/download \
     && unzip download \
     && rm download \
     && mkdir src
 
 RUN cd /home/chibios \
-    && wget https://sourceforge.net/projects/chibios/files/ChibiOS_RT%20stable/Version%2016.1.0/ChibiOS_16.1.0.zip/download \
+    && wget https://sourceforge.net/projects/chibios/files/ChibiOS%20GPL3/Version%2016.1.0/ChibiOS_16.1.0.zip/download \
     && unzip download \
     && rm download
 
 RUN cd /home/chibios \
-    && wget https://sourceforge.net/projects/chibios/files/ChibiOS_RT%20stable/Version%2017.6.0/ChibiOS_17.6.0.zip/download \
+    && wget https://sourceforge.net/projects/chibios/files/ChibiOS%20GPL3/Version%2017.6.0/ChibiOS_17.6.0.zip/download \
     && unzip download \
     && rm download
 
 ENV CHIBIOS_3_0_1 /home/chibios/ChibiOS_3.0.1
 ENV CHIBIOS_16_1_0 /home/chibios/ChibiOS_16.1.0
 ENV CHIBIOS_17_6_0 /home/chibios/ChibiOS_17.6.0
+ENV LD_LIBRARY_PATH /usr/local/lib
 
 WORKDIR /home/chibios/src
