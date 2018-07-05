@@ -1,3 +1,21 @@
 #!/bin/sh
 
-docker run --rm --privileged -v $(pwd):/home/chibios/src chibios:latest make $1
+if [ "$(docker ps)" != "Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?" ]
+then
+    echo "Docker is not running"
+    echo "Starting docker..."
+
+    sudo systemctl start docker.socket
+    sudo systemctl start docker.service
+else
+    echo "Docker already running"
+fi
+
+if [ $# -eq 0 ]
+then
+    echo
+    echo "Usage ctcmd <command>"
+    exit
+fi
+
+docker run --rm --privileged -v $(pwd):/home/chibios/src chibios:latest $@
